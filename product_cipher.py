@@ -14,7 +14,6 @@ from os import rename
 def main():
 
 	# Get the key and mode from the user
-	#print ('msg is: %s' % msg)
 	key_1 = input('Input the key: ')
 	mode_1 = input('Select "encrypt" or "decrypt": ')
 
@@ -23,7 +22,8 @@ def main():
 	mode_2 = switchMode(mode_1)
 
 
-	# This is a list of all the file types that will be encrypted
+	# This is a list of all the file types that are supported
+	# The program will ignore all other file types
 	ext = ('*.txt','*.xhtml','*.html','*.htm','*.css','*.php','*.sql',
 		'*.java','*.jsp','*.xml','*.xsl','*.xsd','*.xslt','*.xlog',
 		'*.json','py','*.rtf','*.srt','*.sub','*.csv','*.conf','*.log',
@@ -34,7 +34,7 @@ def main():
 	files = []
 	for e in (ext):
 		files.extend(glob(join("danger_zone/", e)))
-		
+
 
 	# Open each file one by one and encrypt or decrypt
 	for i in range(len(files)):
@@ -44,42 +44,34 @@ def main():
 
 
 		if mode_1 == 'encrypt':
-			# Implement the first algorithm
+			# Implement the ciphers
 			first_cipher = portaCipher(msg, key_1, mode_1)
-			#print ('Value of first_cipher is: %s' % first_cipher)
 
-			# Implement the second algorithm
 			second_cipher = transpositionCipher(first_cipher, key_2, mode_2)
-			#print ('Value of second_cipher is: %s' % second_cipher)
 
-			# Implement the third algorithm
 			third_cipher = vigenereCipher(second_cipher, key_2, mode_1)
-			#print ('Value of third_cipher is: %s' % third_cipher)
 
 			# Write the encrypted data back to the file
 			with open(working_file, 'w') as file:
 				file.write(third_cipher)
 
+			# Tell the user about each file that has been encrypted
 			print('File %s has been encrypted' % working_file)
 
 
 		elif mode_1 == 'decrypt':
-			# Implement the first algorithm
+			# Implement the ciphers
 			first_cipher = vigenereCipher(msg, key_2, mode_1)
-			#print ('Value of first_cipher is: %s' % first_cipher)
 
-			# Implement the second algorithm
 			second_cipher = transpositionCipher(first_cipher, key_2, mode_2)
-			#print ('Value of second_cipher is: %s' % second_cipher)
 
-			# Implement the third algorithm
 			third_cipher = portaCipher(second_cipher, key_1, mode_1)
-			#print ('Value of third_cipher is: %s' % third_cipher)
 
 			# Write the encrypted data back to the file
 			with open(working_file, 'w') as file:
 				file.write(third_cipher)
 
+			# Tell the user about each file that has been decrypted
 			print('File %s has been decrypted' % working_file)
 
 
