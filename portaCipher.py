@@ -36,19 +36,19 @@ def encipher(string, key):
     for (i,c) in enumerate(string):
         i = i%len(key)
         if c in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            if   key[i] in 'AB': ret += 'NOPQRSTUVWXYZABCDEFGHIJKLM'[a2i(c)]
-            elif key[i] in 'YZ': ret += 'ZNOPQRSTUVWXYBCDEFGHIJKLMA'[a2i(c)]
-            elif key[i] in 'WX': ret += 'YZNOPQRSTUVWXCDEFGHIJKLMAB'[a2i(c)]
-            elif key[i] in 'UV': ret += 'XYZNOPQRSTUVWDEFGHIJKLMABC'[a2i(c)]
-            elif key[i] in 'ST': ret += 'WXYZNOPQRSTUVEFGHIJKLMABCD'[a2i(c)]
-            elif key[i] in 'QR': ret += 'VWXYZNOPQRSTUFGHIJKLMABCDE'[a2i(c)]
-            elif key[i] in 'OP': ret += 'UVWXYZNOPQRSTGHIJKLMABCDEF'[a2i(c)]
-            elif key[i] in 'MN': ret += 'TUVWXYZNOPQRSHIJKLMABCDEFG'[a2i(c)]
-            elif key[i] in 'KL': ret += 'STUVWXYZNOPQRIJKLMABCDEFGH'[a2i(c)]
-            elif key[i] in 'IJ': ret += 'RSTUVWXYZNOPQJKLMABCDEFGHI'[a2i(c)]
-            elif key[i] in 'GH': ret += 'QRSTUVWXYZNOPKLMABCDEFGHIJ'[a2i(c)]
-            elif key[i] in 'EF': ret += 'PQRSTUVWXYZNOLMABCDEFGHIJK'[a2i(c)]
-            elif key[i] in 'CD': ret += 'OPQRSTUVWXYZNMABCDEFGHIJKL'[a2i(c)]
+            if   key[i] in 'AB': ret += 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'[a2i(c)]
+            elif key[i] in 'YZ': ret += 'ZNOPQRSTUVWXYBCDEFGHIJKLMAznopqrstuvwxybcdefghijklma'[a2i(c)]
+            elif key[i] in 'WX': ret += 'YZNOPQRSTUVWXCDEFGHIJKLMAByznopqrstuvwxcdefghijklmab'[a2i(c)]
+            elif key[i] in 'UV': ret += 'XYZNOPQRSTUVWDEFGHIJKLMABCxyznopqrstuvwdefghijklmabc'[a2i(c)]
+            elif key[i] in 'ST': ret += 'WXYZNOPQRSTUVEFGHIJKLMABCDwxyznopqrstuvefghijklmabcd'[a2i(c)]
+            elif key[i] in 'QR': ret += 'VWXYZNOPQRSTUFGHIJKLMABCDEvwxyznopqrstufghijklmabcde'[a2i(c)]
+            elif key[i] in 'OP': ret += 'UVWXYZNOPQRSTGHIJKLMABCDEFuvwxyznopqrstghijklmabcdef'[a2i(c)]
+            elif key[i] in 'MN': ret += 'TUVWXYZNOPQRSHIJKLMABCDEFGtuvwxyznopqrshijklmabcdefg'[a2i(c)]
+            elif key[i] in 'KL': ret += 'STUVWXYZNOPQRIJKLMABCDEFGHstuvwxyznopqrijklmabcdefgh'[a2i(c)]
+            elif key[i] in 'IJ': ret += 'RSTUVWXYZNOPQJKLMABCDEFGHIrstuvwxyznopqjklmabcdefghi'[a2i(c)]
+            elif key[i] in 'GH': ret += 'QRSTUVWXYZNOPKLMABCDEFGHIJqrstuvwxyznopklmabcdefghij'[a2i(c)]
+            elif key[i] in 'EF': ret += 'PQRSTUVWXYZNOLMABCDEFGHIJKpqrstuvwxyznolmabcdefghijk'[a2i(c)]
+            elif key[i] in 'CD': ret += 'OPQRSTUVWXYZNMABCDEFGHIJKLopqrstuvwxyznmabcdefghijkl'[a2i(c)]
         else: ret += c   # If the character is not in the alphabet
     return ret    
 
