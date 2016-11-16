@@ -41,6 +41,8 @@ def main():
 		with open(working_file, 'w') as file:
 			file.write(third_cipher)
 
+		print('File %s has been encrypted' % working_file)
+
 
 	elif mode_1 == 'decrypt':
 		# Implement the first algorithm
@@ -58,6 +60,8 @@ def main():
 		# Write the encrypted data back to the file
 		with open(working_file, 'w') as file:
 			file.write(third_cipher)
+
+		print('File %s has been decrypted' % working_file)
 
 
 main()
