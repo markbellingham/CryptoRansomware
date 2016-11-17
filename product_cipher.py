@@ -13,12 +13,12 @@ def encrypt(key_1, mode_1, working_file):
 	with open(working_file, 'r') as file:
 		msg = file.read()
 
-	# Implement the ciphers
-	first_cipher = portaCipher(msg, key_1, mode_1)
-
 	# This gives us our alternate key and changes the mode
 	key_2 = reverse(key_1)
 	mode_2 = switchMode(mode_1)
+
+	# Implement the ciphers
+	first_cipher = portaCipher(msg, key_1, mode_1)
 
 	second_cipher = transpositionCipher(first_cipher, key_2, mode_2)
 

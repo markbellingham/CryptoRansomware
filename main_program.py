@@ -1,8 +1,9 @@
 from product_cipher import *
-from base import *
+from base import listFiles
 
 
-# Function that runs the core program
+# Main controller that gets input from the user and a list of files 
+# and sends them off to be encrypted or decrypted
 def main():
 
 	# Get the key and mode from the user
