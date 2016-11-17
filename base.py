@@ -6,6 +6,8 @@ Created: 2012-04-28
 https://github.com/jameslyons/pycipher/blob/master/pycipher/base.py
 '''
 import re
+from glob import glob
+from os.path import join
 
 def encipher(string):
     return string
@@ -39,3 +41,29 @@ def switchMode(mode):
     elif (mode == 'decrypt'):
         mode_2 = 'encrypt'
     return mode_2
+
+
+# Function that interates through a directory and returns a list of all the
+# files with the supported extensions. It will ignore all other file types
+def listFiles(directory):
+
+    ext = ('*.txt','*.xhtml','*.html','*.htm','*.css','*.php','*.sql',
+        '*.java','*.jsp','*.js','*.xml','*.xsl','*.xsd','*.xslt','*.xlog',
+        '*.json','py','*.rtf','*.srt','*.sub','*.csv','*.conf','*.log',
+        '*.manifest','*.lrc','*.html5','*.linux','*.sha1','*.sha512',
+        '*.err','*.readme','*.man')
+
+    # Put the file names into an array
+    files = []
+    for e in (ext):
+        files.extend(glob(join(directory, e)))
+
+    return files
+
+
+def readFile(files):
+    # Open each file one by one and encrypt or decrypt
+    for i in range(len(files)):
+        working_file = files[i]
+        with open(working_file, 'r') as file:
+            msg = file.read()

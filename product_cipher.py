@@ -3,9 +3,7 @@ from vigenereCipher import *
 from transpositionCipher import *
 from portaCipher import *
 from reverseCipher import reverse
-from base import switchMode
-from glob import glob
-from os.path import join
+from base import *
 from os import rename
 
 
@@ -21,20 +19,9 @@ def main():
 	key_2 = reverse(key_1)
 	mode_2 = switchMode(mode_1)
 
-
-	# This is a list of all the file types that are supported
-	# The program will ignore all other file types
-	ext = ('*.txt','*.xhtml','*.html','*.htm','*.css','*.php','*.sql',
-		'*.java','*.jsp','*.xml','*.xsl','*.xsd','*.xslt','*.xlog',
-		'*.json','py','*.rtf','*.srt','*.sub','*.csv','*.conf','*.log',
-		'*.manifest','*.lrc','*.html5','*.linux','*.sha1','*.sha512',
-		'*.err','*.readme','*.man')
-
-	# Put the file names into an array
-	files = []
-	for e in (ext):
-		files.extend(glob(join("danger_zone/", e)))
-
+	# Specify the root directory and get a list of files
+	path = "danger_zone/"
+	files = listFiles(path)
 
 	# Open each file one by one and encrypt or decrypt
 	for i in range(len(files)):
