@@ -16,12 +16,10 @@ def main():
 	# Open each file one by one and encrypt or decrypt
 	for i in range(len(files)):
 		working_file = files[i]
-		with open(working_file, 'r') as file:
-			msg = file.read()
 
 		if mode == 'encrypt':
-			encrypt(msg, key, mode, working_file)
+			encrypt(key, mode, working_file)
 		elif mode == 'decrypt':
-			decrypt(msg, key, mode, working_file)
+			decrypt(key, mode, working_file)
 
 main()

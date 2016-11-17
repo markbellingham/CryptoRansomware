@@ -8,7 +8,11 @@ from os import rename
 
 
 
-def encrypt(msg, key_1, mode_1, working_file):
+def encrypt(key_1, mode_1, working_file):
+	# Open the file and get the contents
+	with open(working_file, 'r') as file:
+		msg = file.read()
+
 	# Implement the ciphers
 	first_cipher = portaCipher(msg, key_1, mode_1)
 
@@ -29,7 +33,11 @@ def encrypt(msg, key_1, mode_1, working_file):
 
 
 
-def decrypt(msg, key_1, mode_1, working_file):
+def decrypt(key_1, mode_1, working_file):
+	# Open the file and get the contents
+	with open(working_file, 'r') as file:
+		msg = file.read()
+
 	# This gives us our alternate key and changes the mode
 	key_2 = reverse(key_1)
 	mode_2 = switchMode(mode_1)
