@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="friends.xsl"?>
+<numbers>
+ <contact type="business">
+   <name>Mrs A.</name>
+   <number>(01273) 555-1234</number>
+ </contact>
+ <contact type="business">
+   <name>Mr B.</name>
+   <number>(01273) 555-1801</number>
+ </contact>
+ <contact type="friends">
+   <name>Ms C.</name>
+   <number>(01273) 555-1999</number>
+ </contact>
+ <contact type="friends">
+   <name>Dr D.</name>
+   <number>(01903) 555-1111</number>
+ </contact>
+ <contact type="business">
+   <name>Prof E.</name>
+   <number>(01208) 555-9876</number>
+ </contact>
+ <contact type="friends">
+   <name>Sir F.</name>
+   <number>(01273) 555-4312</number>
+ </contact>
+</numbers>
