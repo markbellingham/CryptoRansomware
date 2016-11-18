@@ -34,31 +34,13 @@ def i2a(i):
 def remove_punctuation(text,filter='[^A-Z]'):
     return re.sub(filter,'',text.upper())
 
-# Function that returns the opposite of encrypt or decrypt for the second algorithm
+# Function that switches the mode between encrypt and decrypt
 def switchMode(mode):
     if (mode == 'encrypt'):
         mode_2 = 'decrypt'
     elif (mode == 'decrypt'):
         mode_2 = 'encrypt'
     return mode_2
-
-
-# Function that interates through a directory and returns a list of all the
-# files with the supported extensions. It will ignore all other file types
-def listFiles(directory):
-
-    ext = ('*.txt','*.xhtml','*.html','*.htm','*.css','*.php','*.sql',
-        '*.java','*.jsp','*.js','*.xml','*.xsl','*.xsd','*.xslt','*.xlog',
-        '*.json','py','*.rtf','*.srt','*.sub','*.csv','*.conf','*.log',
-        '*.manifest','*.lrc','*.html5','*.linux','*.sha1','*.sha512',
-        '*.err','*.readme','*.man')
-
-    # Put the file names into an array
-    files = []
-    for e in (ext):
-        files.extend(glob(join(directory, e)))
-
-    return files
 
 
 def readFile(files):
