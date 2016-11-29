@@ -1,30 +1,32 @@
 # Vigenere Cipher (Polyalphabetic Substitution Cipher)
 # http://inventwithpython.com/hacking (BSD Licensed)
-import string
 
 # LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-LETTERS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[\]^_`{|}~'
+LETTERS = '''0123456789abcdefghijklmnopqrstuvwxyz
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ
+            !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'''
+
 
 def vigenereCipher(message, key, mode):
-    translated = [] # stores the encrypted/decrypted message string
+    translated = []  # stores the encrypted/decrypted message string
 
     keyIndex = 0
     key = key.upper()
 
-    for symbol in message: # loop through each character in message
+    for symbol in message:  # loop through each character in message
         num = LETTERS.find(symbol)
-        if num != -1: # -1 means symbol.upper() was not found in LETTERS
+        if num != -1:  # -1 means symbol.upper() was not found in LETTERS
             if mode == 'encrypt':
-                num += LETTERS.find(key[keyIndex]) # add if encrypting
+                num += LETTERS.find(key[keyIndex])  # add if encrypting
             elif mode == 'decrypt':
-                num -= LETTERS.find(key[keyIndex]) # subtract if decrypting
+                num -= LETTERS.find(key[keyIndex])  # subtract if decrypting
 
-            num %= len(LETTERS) # handle the potential wrap-around
+            num %= len(LETTERS)  # handle the potential wrap-around
 
             # add the encrypted/decrypted symbol to the end of translated.
             translated.append(LETTERS[num])
 
-            keyIndex += 1 # move to the next letter in the key
+            keyIndex += 1  # move to the next letter in the key
             if keyIndex == len(key):
                 keyIndex = 0
         else:
