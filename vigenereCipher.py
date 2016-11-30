@@ -1,10 +1,7 @@
 # Vigenere Cipher (Polyalphabetic Substitution Cipher)
 # http://inventwithpython.com/hacking (BSD Licensed)
 
-# LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-LETTERS = '''0123456789abcdefghijklmnopqrstuvwxyz
-            ABCDEFGHIJKLMNOPQRSTUVWXYZ
-            !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'''
+LETTERS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<>?@[]_{=}½¾þøŧ¶łæßðđŋħµ¢€'
 
 
 def vigenereCipher(message, key, mode):

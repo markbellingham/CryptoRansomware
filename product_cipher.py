@@ -1,7 +1,7 @@
 # Import cipher files
 from vigenereCipher import *
 from transpositionCipher import *
-from portaCipher import *
+from beaufortCipher import *
 from reverseCipher import reverse
 from base import *
 
@@ -16,7 +16,7 @@ def encrypt(key_1, mode_1, working_file):
     mode_2 = switchMode(mode_1)
 
     # Implement the ciphers
-    first_cipher = portaCipher(msg, key_1, mode_1)
+    first_cipher = beaufortCipher(msg, key_1, mode_1)
 
     second_cipher = transpositionCipher(first_cipher, key_2, mode_2)
 
@@ -44,7 +44,7 @@ def decrypt(key_1, mode_1, working_file):
 
     second_cipher = transpositionCipher(first_cipher, key_2, mode_2)
 
-    third_cipher = portaCipher(second_cipher, key_1, mode_1)
+    third_cipher = beaufortCipher(second_cipher, key_1, mode_1)
 
     # Write the encrypted data back to the file
     with open(working_file, 'w') as file:
