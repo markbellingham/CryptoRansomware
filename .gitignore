@@ -91,4 +91,5 @@ ENV/
 
 # test files
 test*.py
-target_folder (copy)
+target_folder_copy
+printable_characters.txt
