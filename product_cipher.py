@@ -32,6 +32,7 @@ def encrypt(key_1, mode_1, working_file):
 
         n = i + 1
 
+    # Rename the file with a .encrypted extension
     os.rename(working_file, working_file + '.encrypted')
 
     # Tell the user about each file that has been encrypted
@@ -61,6 +62,7 @@ def decrypt(key_1, mode_1, working_file):
 
         n = i + 1
 
+    # Remove the .encrypted extension
     os.rename(working_file, working_file[:-10])
 
     # Tell the user about each file that has been decrypted

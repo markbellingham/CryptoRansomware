@@ -1,5 +1,6 @@
 from product_cipher import *
 from functions import *
+import webbrowser
 import os
 
 
@@ -32,6 +33,10 @@ def main():
                     encrypt(key, mode, filename)
                 elif mode == 'decrypt':
                     decrypt(key, mode, filename)
+
+    if mode == 'encrypt':
+        link = "hacked.htm"
+        webbrowser.open(link)
 
 
 main()
