@@ -4,8 +4,10 @@ from transpositionCipher import *
 from beaufortCipher import *
 from reverseCipher import *
 from functions import *
+import os
 
 n = 0
+
 
 def encrypt(key_1, mode_1, working_file):
     # Open the file and get the contents
@@ -30,8 +32,10 @@ def encrypt(key_1, mode_1, working_file):
 
         n = i + 1
 
+    os.rename(working_file, working_file + '.encrypted')
+
     # Tell the user about each file that has been encrypted
-    print('File '+ working_file + ' has been encrypted ' + str(n) + ' times' )
+    print('File ' + working_file + ' has been encrypted ' + str(n) + ' times')
 
 
 def decrypt(key_1, mode_1, working_file):
@@ -56,6 +60,8 @@ def decrypt(key_1, mode_1, working_file):
             file.write(third_cipher)
 
         n = i + 1
+
+    os.rename(working_file, working_file[:-10])
 
     # Tell the user about each file that has been decrypted
     print('File ' + working_file + ' has been decrypted ' + str(n) + ' times')
