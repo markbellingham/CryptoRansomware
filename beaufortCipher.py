@@ -8,7 +8,7 @@ from base import *
 
 
 def beaufortCipher(string, key, mode):
-    key = [k.upper() for k in key]
+    #key = [k.upper() for k in key]
 
     if mode == 'encrypt':
         result = encipher(string, key)

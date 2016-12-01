@@ -2,8 +2,8 @@
 from vigenereCipher import *
 from transpositionCipher import *
 from beaufortCipher import *
-from reverseCipher import reverse
-from base import *
+from reverseCipher import *
+from functions import *
 
 
 def encrypt(key_1, mode_1, working_file):

@@ -5,7 +5,6 @@ Author:  James Lyons
 Created:  2012-04-28
 https: //github.com/jameslyons/pycipher/blob/master/pycipher/base.py
 '''
-# import re
 
 
 def a2i(ch):
@@ -40,21 +39,3 @@ def i2a(i):
            '½', '¾', 'þ', 'ø', 'ŧ', '¶', 'ł', 'æ', 'ß', 'ð', 'đ', 'ŋ', 'ħ',
            'µ', '¢', '€', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
     return arr[i]
-
-
-# Function that switches the mode between encrypt and decrypt
-def switchMode(mode):
-    if (mode == 'encrypt'):
-        mode_2 = 'decrypt'
-    elif (mode == 'decrypt'):
-        mode_2 = 'encrypt'
-    return mode_2
-
-
-def readFile(files):
-    # Open each file one by one and encrypt or decrypt
-    for i in range(len(files)):
-        working_file = files[i]
-        with open(working_file, 'r') as file:
-            msg = file.read()
-    return msg

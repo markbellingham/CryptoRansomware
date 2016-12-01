@@ -8,7 +8,7 @@ def vigenereCipher(message, key, mode):
     translated = []  # stores the encrypted/decrypted message string
 
     keyIndex = 0
-    key = key.upper()
+    #key = key.upper()
 
     for symbol in message:  # loop through each character in message
         num = LETTERS.find(symbol)
