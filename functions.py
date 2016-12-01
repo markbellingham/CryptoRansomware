@@ -2,8 +2,9 @@ import platform
 from reverseCipher import *
 from beaufortCipher import *
 
-# Function that creates the key by concatenating the 
-# system name and network name and encrypting them with 
+
+# Function that creates the key by concatenating the
+# system name and network name and encrypting them with
 # the BeaufortCipher
 def createKey():
     key = platform.system() + platform.node()
@@ -12,7 +13,7 @@ def createKey():
     return key
 
 
- # Function that switches the mode between encrypt and decrypt
+# Function that switches the mode between encrypt and decrypt
 def switchMode(mode):
     if (mode == 'encrypt'):
         mode_2 = 'decrypt'

