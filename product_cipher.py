@@ -18,6 +18,7 @@ def encrypt(key_1, mode_1, working_file):
     key_2 = reverse(key_1)
     mode_2 = switchMode(mode_1)
 
+    # Number of times the files are encrypted is set by the length of the key
     for i in range(len(key_1)):
         # Implement the ciphers
         first_cipher = beaufortCipher(msg, key_1, mode_1)

