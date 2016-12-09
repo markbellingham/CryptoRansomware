@@ -19,8 +19,8 @@ def getOption(argv):
     try:
         opts, args = getopt.getopt(argv, 'de', ["decrypt", "encrypt"])
     except getopt.GetoptError:
-        print("RansomCrypt.py -e or RansomCrypt --encrypt to encrypt")
-        print("RansomCrypt.py -d or RansomCrypt --decrypt to decrypt")
+        print("main_program.py -e or main_program.py --encrypt to encrypt")
+        print("main_program.py -d or main_program.py --decrypt to decrypt")
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-d', '--decrypt'):
