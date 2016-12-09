@@ -1,13 +1,15 @@
-from product_cipher import *
+# from product_cipher import *
 from functions import *
 from shutil import copy
-import os,getopt,sys,webbrowser
+import os
+import sys
+import webbrowser
 # from os.path import expanduser
 
 
 # Main controller that gets input from the user and a list of files
 # and sends them off to be encrypted or decrypted
-def main(argv):    
+def main(argv):
 
     # Create the key and get mode from the user
     key = createKey()
@@ -18,7 +20,13 @@ def main(argv):
         sys.exit(2)
     else:
         mode = getOption(argv)
-    # mode = input('Select "encrypt" or "decrypt": ')
+
+    # Only imports module relevant to the mode
+    # This means encrypt and decrypt can be separated
+    if mode == 'encrypt':
+        from product_cipher_encrypt import encrypt
+    elif mode == 'decrypt':
+        from product_cipher_decrypt import decrypt
 
     # Specify the root directory
     path = "target_folder/"
