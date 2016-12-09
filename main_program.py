@@ -1,4 +1,3 @@
-# from product_cipher import *
 from functions import *
 from shutil import copy
 import os
@@ -15,8 +14,8 @@ def main(argv):
     key = createKey()
     if (len(sys.argv)) < 2:
         print("Incorrect usage")
-        print("Usage: python3 main_program.py -e")
-        print("Usage: python3 main_program.py -d")
+        print("Usage: python3 main_program.py -e to encrypt")
+        print("Usage: python3 main_program.py -d to decrypt")
         sys.exit(2)
     else:
         mode = getOption(argv)
