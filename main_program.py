@@ -11,7 +11,7 @@ def main(argv):
 
     # Create the key and get mode from the user
     key = createKey()
-    if (len(sys.argv)) != 2:
+    if (len(sys.argv)) < 2:
         print("Incorrect usage")
         print("Usage: python3 main_program.py -e")
         print("Usage: python3 main_program.py -d")
