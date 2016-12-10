@@ -19,4 +19,4 @@ The program will encrypt a variety of text-based files such as *.java, *.html, *
 
 When decrypting, the program outputs to the terminal information about each file that is being decrypted. It will decrypt all supported files, restoring them to their original state. If the decrypt function is used on unencrypted files, you can use the encrypt function to restore their contents but the filenames will be different. Decrypted files have the .encrypted extension removed. The hacked.htm file is removed from all directories where it is present. 
 
-The program will work without either product_cipher_encrypt.py or product_cipher_decrypt.py present provided the correct option is given for the file that is present.
+The program will work without either product_cipher_encrypt.py or product_cipher_decrypt.py present provided the correct option is given for the file that is present. If decrypt is selected but the decrypt module is not present, the program will display hacked.htm in the browser and quit.
