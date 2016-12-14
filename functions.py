@@ -3,6 +3,7 @@ from reverseCipher import *
 from beaufortCipher import *
 import sys
 import getopt
+import fileinput
 
 
 # Function that creates the key by concatenating the
@@ -39,10 +40,32 @@ def switchMode(mode):
     return mode_2
 
 
-def readFile(files):
-    # Open each file one by one and encrypt or decrypt
-    for i in range(len(files)):
-        working_file = files[i]
-        with open(working_file, 'r') as file:
-            msg = file.read()
-    return msg
+# Function to add the filename to the logfile
+def addToLog(path):
+    if checkLog(path):
+        return
+    else:
+        with open('hacked.log', 'a') as log:
+            log.write(path + '\n')
+
+
+# Function that checks if the filename is in the logfile
+def checkLog(path):
+    # print('path: ' + path)
+    with open('hacked.log', 'r') as logfile:
+        for line in logfile:
+            # print('line: ' + line)
+            if path in line:
+                return True
+    return False
+
+
+# Function that deletes the filename entry from the logfile
+def deleteFromLog(filename):
+    with open('hacked.log', 'r') as f:
+        lines = f.readlines()
+        
+    with open('hacked.log', 'w') as f:
+        for line in lines:
+            if line != filename[:-10] + '\n':
+                f.write(line)
