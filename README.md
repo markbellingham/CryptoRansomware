@@ -9,9 +9,9 @@ This program is potentially dangerous and could render the operating system  on 
 
 Usage: From the terminal type:
 
-"python3 main_program.py -e" or "python3 main_program --encrypt" to encrypt
+"python3 main_program.py -e" or "python3 main_program.py --encrypt" to encrypt
 
-"python3 main_program.py -d" or "python3 main_program --decrypt" to decrypt
+"python3 main_program.py -d" or "python3 main_program.py --decrypt" to decrypt
 
 Program to emulate a RansomWare style program using 3 of the classic text encryption algorithms in a product cipher, that encrypts the files on the hard disk and presents a ransom note asking for money to decrypt them. Decryption method is also included. 
 
@@ -20,3 +20,5 @@ The program will encrypt a variety of text-based files such as *.java, *.html, *
 When decrypting, the program outputs to the terminal information about each file that is being decrypted. It will decrypt all supported files, restoring them to their original state. If the decrypt function is used on unencrypted files, you can use the encrypt function to restore their contents but the filenames will be different. Decrypted files have the .encrypted extension removed. The hacked.htm file is removed from all directories where it is present. 
 
 The program will work without either product_cipher_encrypt.py or product_cipher_decrypt.py present provided the correct option is given for the file that is present. If decrypt is selected but the decrypt module is not present, the program will display hacked.htm in the browser and quit.
+
+While encrypting, the program generates a log containing a list of all the filenames of encrypted files. While decrypting, the filenames are removed from the log. In this way the program could survive a system restart.
