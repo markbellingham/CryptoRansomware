@@ -13,7 +13,7 @@ Usage: From the terminal type:
 
 "python3 main_program.py -d" or "python3 main_program.py --decrypt" to decrypt
 
-The current target directory is the user's {home}. This can be changed by switching the comments on lines 43 and 45 in the file 'main_program.py'.
+The current target is a test directory. The program can be set to encrypt the user's {home} by switching the comments on lines 43 and 45 in the file 'main_program.py'.
 
 Program to emulate a RansomWare style program using 3 of the classic text encryption algorithms in a product cipher, that encrypts the files on the hard disk and presents a ransom note asking for money to decrypt them. Decryption method is also included. 
 

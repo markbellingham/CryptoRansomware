@@ -40,9 +40,9 @@ def main(argv):
             sys.exit(2)
 
     # Specify the root directory
-    # path = "target_folder/"
+    path = "target_folder/"
     # This version selects the user's home directory for the root
-    path = expanduser("~")
+    # path = expanduser("~")
 
     # List of the filetypes that are supported by the program
     ext = ('.txt', '.xhtml', '.html', '.htm', '.css', '.php', '.sql',
