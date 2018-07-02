@@ -32,6 +32,9 @@ https://github.com/markbellingham/CryptoRansomware
 
 ## Screenshots
 Terminal Output
+
 ![Terminal Output](/Screenshots/terminal_output.png "Terminal Output")
+
+Encrypted Files
 
 ![Encrypted Files](/Screenshots/encrypted.png "Encrypted Files")
