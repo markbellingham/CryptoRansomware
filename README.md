@@ -29,3 +29,9 @@ While encrypting, the program generates a log containing a list of all the filen
 Program source code:
 
 https://github.com/markbellingham/CryptoRansomware
+
+## Screenshots
+Terminal Output
+![Terminal Output](/Screenshots/terminal_output.png "Terminal Output")
+
+![Encrypted Files](/Screenshots/encrypted.png "Encrypted Files")
